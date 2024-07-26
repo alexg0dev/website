@@ -328,7 +328,7 @@
                     <li><a href="#support">Support</a></li>
                 </ul>
                 <div id="user-info" class="ml-4">
-                    <a href="https://discord.com/oauth2/authorize?client_id=1266421122887450774&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord%2Fcallback&scope=identify+email" class="btn-discord font-bold">
+                    <a id="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify%20email" class="btn-discord font-bold">
                         <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
                         Login with Discord
                     </a>
@@ -344,7 +344,7 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="text-6xl font-bold mb-4">Welcome to ePitch Networks</h1>
+            <h1 id="welcome-message" class="text-6xl font-bold mb-4">Welcome to ePitch Networks</h1>
             <p class="text-2xl mb-8">Your ultimate destination for pro clubs, events, and tournaments</p>
             <div class="flex justify-center space-x-4">
                 <a href="#" class="btn-primary text-white font-bold">Get Started</a>
@@ -537,6 +537,9 @@
     </div>
 
     <script>
+        const clientId = 'YOUR_CLIENT_ID'; // Replace with your actual client ID
+        const redirectUri = 'YOUR_REDIRECT_URI'; // Replace with your actual redirect URI
+
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
             document.querySelector('.cookie-consent').style.display = 'none';
@@ -547,7 +550,68 @@
             document.querySelector('.cookie-warning').style.display = 'block';
         }
 
+        function getAccessToken(code) {
+            const url = `https://discord.com/api/oauth2/token`;
+            const data = new URLSearchParams({
+                client_id: clientId,
+                client_secret: 'YOUR_CLIENT_SECRET', // Replace with your actual client secret
+                grant_type: 'authorization_code',
+                code: code,
+                redirect_uri: redirectUri,
+            });
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data,
+            })
+                .then(response => response.json());
+        }
+
+        function getUserInfo(accessToken) {
+            return fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            })
+                .then(response => response.json());
+        }
+
+        function displayUserInfo(user) {
+            document.getElementById('user-info').innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <span>${user.username} (${user.email})</span>
+                    <button onclick="signOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
+                </div>
+            `;
+            document.getElementById('welcome-message').innerText = `Welcome to ePitch, ${user.username}`;
+        }
+
+        function signOut() {
+            localStorage.removeItem('user');
+            location.reload();
+        }
+
         window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+
+            if (code) {
+                getAccessToken(code).then(data => {
+                    getUserInfo(data.access_token).then(user => {
+                        localStorage.setItem('user', JSON.stringify(user));
+                        displayUserInfo(user);
+                    });
+                });
+            } else {
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    displayUserInfo(user);
+                }
+            }
+
             if (localStorage.getItem('cookiesAccepted') === 'true') {
                 document.querySelector('.cookie-consent').style.display = 'none';
             }
