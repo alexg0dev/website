@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePitch Networks</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(90deg, rgba(29, 78, 216, 1) 0%, rgba(236, 72, 153, 1) 100%);
+        }
+
+        .header-nav ul {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header-nav li {
+            list-style: none;
+        }
+
+        .header-nav a {
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            transition: color 0.3s, transform 0.3s;
+            color: #c5c6c7;
+            font-weight: bold;
+        }
+
+        .header-nav a:hover {
+            color: #66fcf1;
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, rgba(99, 102, 241, 1) 0%, rgba(139, 92, 246, 1) 100%);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(90deg, rgba(236, 72, 153, 1) 0%, rgba(249, 115, 22, 1) 100%);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-discord {
+            background-color: #7289da;
+            color: white;
+            transition: transform 0.3s;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-discord img {
+            margin-right: 0.5rem;
+            height: 24px;
+        }
+
+        .btn-discord:hover {
+            background-color: #5a6fb9;
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background-color: #1f2833;
+            padding: 2rem 0;
+            text-align: center;
+            color: #c5c6c7;
+        }
+
+        .footer a {
+            margin: 0 0.5rem;
+            color: #66fcf1;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #45a29e;
+        }
+
+        .footer-icons img {
+            height: 30px;
+            width: 30px;
+            margin: 0 10px;
+            filter: invert(100%);
+            transition: filter 0.3s;
+        }
+
+        .footer-icons img:hover {
+            filter: invert(70%);
+        }
+
+        .section-title {
+            color: #66fcf1;
+        }
+
+        .card {
+            background-color: #1f2833;
+            color: #c5c6c7;
+            border-radius: 0.5rem;
+            transition: transform 0.3s;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('https://source.unsplash.com/random/1920x1080?esports');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .results-marquee {
+            background-color: #1f2833;
+            color: #66fcf1;
+            padding: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .results-marquee span {
+            display: inline-block;
+            padding-right: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .feature-icon {
+            height: 100px;
+            width: 100px;
+            margin: 0 auto 20px;
+        }
+
+        .feature-card {
+            background-color: #1f2833;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-card h3 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #66fcf1;
+        }
+
+        .feature-card p {
+            color: #c5c6c7;
+        }
+
+        .ad-section {
+            background-color: #2c3e50;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .ad-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #1f2833;
+            color: #c5c6c7;
+            padding: 1rem;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .cookie-consent button {
+            background-color: #66fcf1;
+            color: #1f2833;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        .cookie-consent button:hover {
+            background-color: #45a29e;
+        }
+
+        .cookie-warning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            z-index: 10000;
+            padding-top: 20%;
+        }
+
+        .cookie-warning img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .cookie-warning a {
+            color: #66fcf1;
+            text-decoration: underline;
+        }
+
+        .icon {
+            height: 50px;
+            width: 50px;
+            margin: 0 auto 20px;
+        }
+
+        .circular-flag {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="gradient-bg p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="navbar-brand flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Logo">
+                <span class="text-3xl font-bold text-white">ePitch Networks</span>
+            </a>
+            <nav class="flex items-center header-nav">
+                <ul class="flex space-x-4">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#competitions">Competitions</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+                <div id="user-info" class="ml-4">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1266421122887450774&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord%2Fcallback&scope=identify+email" class="btn-discord font-bold">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
+                        Login with Discord
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="results-marquee">
+        <span>Red Dragons 2 - 1 Blue Tigers | Green Warriors 0 - 0 Yellow Knights | Purple Hawks 3 - 2 Orange Foxes | White Wolves 1 - 3 Black Panthers | Grey Eagles 2 - 2 Navy Sharks | ...</span>
+    </div>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="text-6xl font-bold mb-4">Welcome to ePitch Networks</h1>
+            <p class="text-2xl mb-8">Your ultimate destination for pro clubs, events, and tournaments</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="btn-primary text-white font-bold">Get Started</a>
+                <a href="#" class="btn-secondary text-white font-bold">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center section-title">About</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/controller.png" alt="eSports and Streaming" class="feature-icon">
+                    <h3>eSports and Streaming</h3>
+                    <p>We bring together pro clubs and esports enthusiasts for the ultimate gaming experience.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/organization.png" alt="Our Structure" class="feature-icon">
+                    <h3>Our Structure</h3>
+                    <p>Providing leagues and tournaments in over 100 countries to turn pro clubs into a global phenomenon.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="https://img.icons8.com/ios-filled/100/ffffff/swap.png" alt="Player Transfers" class="feature-icon">
+                    <h3>Player Transfers</h3>
+                    <p>Manage your team with our immaculate team management tools for a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-16 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center section-title">Upcoming Events</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card hover:bg-gray-700 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-2">Event 1</h3>
+                    <p class="mb-4">Don't miss Event 1 – a thrilling competition for all esports enthusiasts.</p>
+                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                </div>
+                <div class="card hover:bg-gray-700 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-2">Event 2</h3>
+                    <p class="mb-4">Join Event 2 for an unforgettable esports experience.</p>
+                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                </div>
+                <div class="card hover:bg-gray-700 transition duration-300">
+                    <h3 class="text-2xl font-bold mb-2">Event 3</h3>
+                    <p class="mb-4">Be part of Event 3 and compete with the best players.</p>
+                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competitions" class="py-16 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center section-title">Manage Your Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-card">
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/100/ffffff/management.png" alt="Team Management" class="feature-icon"></a>
+                    <h3>Team Management</h3>
+                    <p>With our tools, manage your team effectively and ensure smooth operations.</p>
+                </div>
+                <div class="feature-card">
+                    <a href="#"><img src="https://img.icons8.com/ios-filled/100/ffffff/leaderboard.png" alt="Become a Player" class="feature-icon"></a>
+                    <h3>Become a Player</h3>
+                    <p>Join a team, showcase your skills, and climb the ranks in the esports world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 section-title">Free Agents and Teams Looking for Players</h2>
+            <p class="mb-8">Connect with players and teams to build your ultimate esports squad. Managers can declare interest in players, and players can join teams to compete in our leagues and tournaments.</p>
+            <a href="#" class="btn-secondary text-white font-bold py-2 px-4 rounded">View Free Agents & Teams</a>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 section-title">Requirements and Rules</h2>
+            <p class="mb-4">Read the following requirements and rules to participate in our leagues and tournaments.</p>
+            <ul class="text-left inline-block">
+                <li class="mb-2">1. All players must be registered and verified.</li>
+                <li class="mb-2">2. Players must adhere to the code of conduct during events.</li>
+                <li class="mb-2">3. Team managers are responsible for submitting accurate player statistics.</li>
+                <li class="mb-2">4. Cheating or unsportsmanlike behavior will result in disqualification.</li>
+                <li class="mb-2">5. Matches must be played at the scheduled times unless otherwise agreed.</li>
+                <li class="mb-2">6. Players must use their official gamer tags during matches.</li>
+                <li class="mb-2">7. Any disputes must be reported within 24 hours of the match.</li>
+                <li class="mb-2">8. Respect all players, officials, and the community.</li>
+                <li class="mb-2">9. Follow the official game rules and guidelines.</li>
+                <li class="mb-2">10. Ensure proper communication and coordination within your team.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-center section-title">Get Involved</h2>
+            <h3 class="text-2xl font-bold mb-4">How to Join as a Player</h3>
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="icon" alt="Discord">
+                <p class="ml-4">Join our Discord server, select your console (PS/Xbox), and choose your role (free agent or signed). Post in the free agent chats about your player details including position, experience, and gamertag.</p>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">How to Enroll Your Team</h3>
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" class="icon" alt="Email">
+                <p class="ml-4">Contact us via email at: info@epitchnetworks.com to enroll your team. You can also reach out to us on WhatsApp at: +44 7771 301924</p>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Partnerships and Sponsorships</h3>
+            <div class="flex items-center justify-center mb-4">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/handshake.png" class="icon" alt="Partnerships">
+                <p class="ml-4">We are always looking for partners and sponsors to collaborate with us. Contact us to discuss potential partnership opportunities and how we can work together to promote esports.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8 section-title">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card">
+                    <img src="images/saliba.png" alt="Alexandro" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                    <h3 class="text-2xl font-bold mb-2">Alexandro
+                        <img src="https://img.icons8.com/color/48/000000/united-arab-emirates-circular.png" alt="UAE" class="circular-flag">
+                    </h3>
+                    <p class="mb-4">CEO</p>
+                </div>
+                <div class="card">
+                    <img src="images/invisible.png" alt="Invisible" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                    <h3 class="text-2xl font-bold mb-2">Invisible
+                        <img src="https://img.icons8.com/color/48/000000/great-britain-circular.png" alt="UK" class="circular-flag">
+                    </h3>
+                    <p class="mb-4">COO</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" alt="Klavs" class="mx-auto mb-4 rounded-full">
+                    <h3 class="text-2xl font-bold mb-2">Klavs
+                        <img src="https://img.icons8.com/color/48/000000/latvia-circular.png" alt="Latvia" class="circular-flag">
+                    </h3>
+                    <p class="mb-4">CTO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ad-section">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-center">Sponsored Ads</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 1">
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 2">
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container mx-auto">
+            <p>&copy; 2024 ePitch Networks. All rights reserved. This website is not affiliated with or sponsored by Electronic Arts Inc. or its licensors.</p>
+            <div class="flex justify-center space-x-4 mt-4 footer-icons">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/twitter-squared.png" alt="Twitter"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <div class="mt-4">
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-consent">
+        This website uses cookies. By using this site, you agree to our use of cookies. <button onclick="acceptCookies()">Accept</button>
+        <button onclick="denyCookies()">Deny</button>
+    </div>
+
+    <div class="cookie-warning">
+        <img src="https://img.icons8.com/ios-filled/100/ffffff/error.png" alt="Error">
+        <p>The website may not run correctly without using cookies. Please reload the URL and accept the cookies. For more information about how we use your data, click <a href="#">Learn more</a>.</p>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.querySelector('.cookie-consent').style.display = 'none';
+        }
+
+        function denyCookies() {
+            document.querySelector('.cookie-consent').style.display = 'none';
+            document.querySelector('.cookie-warning').style.display = 'block';
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.querySelector('.cookie-consent').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+
+</html>
