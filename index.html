@@ -328,7 +328,7 @@
                     <li><a href="#support">Support</a></li>
                 </ul>
                 <div id="user-info" class="ml-4">
-                    <a id="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify%20email" class="btn-discord font-bold">
+                    <a id="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=https%3A%2F%2Falexg0dev.github.io%2Fwebsite%2F&response_type=code&scope=identify%20email" class="btn-discord font-bold">
                         <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
                         Login with Discord
                     </a>
@@ -538,7 +538,7 @@
 
     <script>
         const clientId = 'YOUR_CLIENT_ID'; // Replace with your actual client ID
-        const redirectUri = 'YOUR_REDIRECT_URI'; // Replace with your actual redirect URI
+        const redirectUri = 'https://alexg0dev.github.io/website/'; // Your redirect URI
 
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
@@ -582,7 +582,7 @@
         function displayUserInfo(user) {
             document.getElementById('user-info').innerHTML = `
                 <div class="flex items-center space-x-4">
-                    <span>${user.username} (${user.email})</span>
+                    <span>${user.username}</span>
                     <button onclick="signOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
                 </div>
             `;
