@@ -121,7 +121,7 @@
         }
 
         .footer-icons img:hover {
-            filter: invert(60%);
+            filter: invert(70%);
         }
 
         .section-title {
@@ -200,6 +200,7 @@
             0% {
                 transform: translateX(100%);
             }
+
             100% {
                 transform: translateX(-100%);
             }
@@ -310,6 +311,49 @@
             margin-left: 0.5rem;
             vertical-align: middle;
         }
+
+        @media (max-width: 768px) {
+            .header-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-nav li {
+                margin-bottom: 0.5rem;
+            }
+
+            .navbar-brand {
+                justify-content: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .btn-discord {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            .card {
+                padding: 0.5rem;
+            }
+
+            .feature-card {
+                padding: 1rem;
+            }
+
+            .footer {
+                padding: 1rem 0;
+            }
+        }
     </style>
 </head>
 
@@ -381,17 +425,26 @@
             <h2 class="text-4xl font-bold mb-8 text-center section-title">Upcoming Events</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Pro Clubs Championship</h3>
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x200" alt="Pro Clubs Championship" class="rounded-t-lg">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Pro Clubs Championship</h3>
+                    </div>
                     <p class="mb-4">Join the ultimate Pro Clubs Championship and compete with the best teams worldwide.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">ePitch Invitational</h3>
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x200" alt="ePitch Invitational" class="rounded-t-lg">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">ePitch Invitational</h3>
+                    </div>
                     <p class="mb-4">Participate in the ePitch Invitational for a chance to win exclusive prizes.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Rising Stars Tournament</h3>
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x200" alt="Rising Stars Tournament" class="rounded-t-lg">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Rising Stars Tournament</h3>
+                    </div>
                     <p class="mb-4">Showcase your skills in the Rising Stars Tournament and catch the eye of top teams.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
