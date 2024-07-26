@@ -121,7 +121,7 @@
         }
 
         .footer-icons img:hover {
-            filter: invert(70%);
+            filter: invert(60%);
         }
 
         .section-title {
@@ -328,7 +328,7 @@
                     <li><a href="#support">Support</a></li>
                 </ul>
                 <div id="user-info" class="ml-4">
-                    <a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1266421122887450774&response_type=code&redirect_uri=https%3A%2F%2Falexg0dev.github.io%2Fwebsite%2F&scope=identify+email" class="btn-discord font-bold">
+                    <a id="login-btn" href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=https%3A%2F%2Falexg0dev.github.io%2Fwebsite%2F&response_type=code&scope=identify%20email" class="btn-discord font-bold">
                         <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
                         Login with Discord
                     </a>
@@ -381,18 +381,18 @@
             <h2 class="text-4xl font-bold mb-8 text-center section-title">Upcoming Events</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 1</h3>
-                    <p class="mb-4">Don't miss Event 1 – a thrilling competition for all esports enthusiasts.</p>
+                    <h3 class="text-2xl font-bold mb-2">Pro Clubs Championship</h3>
+                    <p class="mb-4">Join the ultimate Pro Clubs Championship and compete with the best teams worldwide.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 2</h3>
-                    <p class="mb-4">Join Event 2 for an unforgettable esports experience.</p>
+                    <h3 class="text-2xl font-bold mb-2">ePitch Invitational</h3>
+                    <p class="mb-4">Participate in the ePitch Invitational for a chance to win exclusive prizes.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 3</h3>
-                    <p class="mb-4">Be part of Event 3 and compete with the best players.</p>
+                    <h3 class="text-2xl font-bold mb-2">Rising Stars Tournament</h3>
+                    <p class="mb-4">Showcase your skills in the Rising Stars Tournament and catch the eye of top teams.</p>
                     <a href="#" class="btn-primary text-white font-bold">Join</a>
                 </div>
             </div>
@@ -455,7 +455,7 @@
             <h3 class="text-2xl font-bold mb-4">How to Enroll Your Team</h3>
             <div class="flex items-center justify-center mb-4">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" class="icon" alt="Email">
-                <p class="ml-4">Contact us via email at: info@epitchnetworks.com to enroll your team. You can also reach out to us on WhatsApp at: +44 7771 301924</p>
+                <p class="ml-4">Contact us via email at: info@epitchnetworks.com to enroll your team.</p>
             </div>
             <h3 class="text-2xl font-bold mb-4">Partnerships and Sponsorships</h3>
             <div class="flex items-center justify-center mb-4">
@@ -537,7 +537,7 @@
     </div>
 
     <script>
-        const clientId = '1266421122887450774'; // Replace with your actual client ID
+        const clientId = 'YOUR_CLIENT_ID'; // Replace with your actual client ID
         const redirectUri = 'https://alexg0dev.github.io/website/'; // Your redirect URI
 
         function acceptCookies() {
@@ -554,7 +554,7 @@
             const url = `https://discord.com/api/oauth2/token`;
             const data = new URLSearchParams({
                 client_id: clientId,
-                client_secret: 'KPvW2wMlynULsjCN2uqOBwutIdWq4RLD', // Replace with your actual client secret
+                client_secret: 'YOUR_CLIENT_SECRET', // Replace with your actual client secret
                 grant_type: 'authorization_code',
                 code: code,
                 redirect_uri: redirectUri,
@@ -586,7 +586,7 @@
                     <button onclick="signOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
                 </div>
             `;
-            document.getElementById('welcome-message').innerText = `Welcome to ePitch, ${user.username}`;
+            document.getElementById('welcome-message').innerText = `Nice to see you again, ${user.username}`;
         }
 
         function signOut() {
