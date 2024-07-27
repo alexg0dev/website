@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ePitch Networks</title>
+    <title>ePitch Networks - Mobile</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -12,6 +12,8 @@
             font-family: 'Poppins', sans-serif;
             background-color: #0b0c10;
             color: #c5c6c7;
+            margin: 0;
+            padding: 0;
         }
 
         .gradient-bg {
@@ -20,12 +22,15 @@
 
         .header-nav ul {
             display: flex;
-            justify-content: center;
-            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .header-nav li {
             list-style: none;
+            margin-bottom: 0.5rem;
         }
 
         .header-nav a {
@@ -41,112 +46,70 @@
             transform: scale(1.1);
         }
 
-        .btn-primary {
-            background: linear-gradient(90deg, rgba(99, 102, 241, 1) 0%, rgba(139, 92, 246, 1) 100%);
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        }
-
+        .btn-primary,
         .btn-secondary {
-            background: linear-gradient(90deg, rgba(236, 72, 153, 1) 0%, rgba(249, 115, 22, 1) 100%);
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            text-align: center;
         }
 
         .btn-discord {
-            background-color: #7289da;
-            color: white;
-            transition: transform 0.3s;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-discord img {
-            margin-right: 0.5rem;
-            height: 24px;
-        }
-
-        .btn-discord:hover {
-            background-color: #5a6fb9;
-            transform: scale(1.1);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer {
-            background-color: #1f2833;
-            padding: 2rem 0;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
             text-align: center;
-            color: #c5c6c7;
         }
 
-        .footer a {
-            margin: 0 0.5rem;
-            color: #66fcf1;
-            transition: color 0.3s;
-        }
-
-        .footer a:hover {
-            color: #45a29e;
-        }
-
-        .footer-icons img {
-            height: 30px;
-            width: 30px;
-            margin: 0 10px;
-            filter: invert(100%);
-            transition: filter 0.3s;
-        }
-
-        .footer-icons img:hover {
-            filter: invert(70%);
-        }
-
-        .section-title {
-            color: #66fcf1;
+        .hero-content {
+            padding: 1rem;
+            border-radius: 0.5rem;
         }
 
         .card {
-            background-color: #1f2833;
-            color: #c5c6c7;
-            border-radius: 0.5rem;
-            transition: transform 0.3s;
-            padding: 1rem;
-            text-align: center;
+            padding: 0.5rem;
         }
 
-        .card:hover {
-            transform: scale(1.05);
+        .feature-card {
+            padding: 1rem;
+        }
+
+        .footer {
+            padding: 1rem 0;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+        }
+
+        .warning-message {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .feature-card,
+        .card {
+            border: 1px solid #c5c6c7;
+            border-radius: 0.5rem;
+        }
+
+        .feature-card img,
+        .card img {
+            margin-bottom: 1rem;
+            width: 100%;
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 50px;
-            margin-right: 10px;
+            justify-content: center;
         }
 
         .hero {
@@ -154,10 +117,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-image: url('https://source.unsplash.com/random/1920x1080?esports');
-            background-size: cover;
-            background-position: center;
+            height: 80vh;
+            background-color: #000;
             color: white;
         }
 
@@ -178,57 +139,6 @@
             background: rgba(0, 0, 0, 0.5);
             padding: 2rem;
             border-radius: 1rem;
-        }
-
-        .results-marquee {
-            background-color: #1f2833;
-            color: #66fcf1;
-            padding: 10px 0;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .results-marquee span {
-            display: inline-block;
-            padding-right: 100%;
-            animation: marquee 20s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .feature-icon {
-            height: 100px;
-            width: 100px;
-            margin: 0 auto 20px;
-        }
-
-        .feature-card {
-            background-color: #1f2833;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            transition: transform 0.3s;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: scale(1.05);
-        }
-
-        .feature-card h3 {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            color: #66fcf1;
-        }
-
-        .feature-card p {
-            color: #c5c6c7;
         }
 
         .ad-section {
@@ -295,77 +205,136 @@
         }
 
         .icon {
-            height: 50px;
-            width: 50px;
+            height: 24px;
+            width: 24px;
             margin: 0 auto 20px;
         }
 
         .circular-flag {
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: inline-block;
             margin-left: 0.5rem;
             vertical-align: middle;
         }
+
+        @media (max-width: 768px) {
+            .header-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-nav li {
+                margin-bottom: 0.5rem;
+            }
+
+            .navbar-brand {
+                justify-content: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .btn-discord {
+                font-size: 0.875rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+                border-radius: 0.5rem;
+            }
+
+            .card {
+                padding: 0.5rem;
+            }
+
+            .feature-card {
+                padding: 1rem;
+            }
+
+            .footer {
+                padding: 1rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="warning-message">
+        Using the mobile website has loads of bugs, and we recommend you to load the website on your iPad/Tablet or Computer powered device.
+    </div>
+
     <header class="gradient-bg p-4 shadow-md">
-        <div class="container mx-auto flex flex-col items-center">
+        <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="navbar-brand">
-                <img src="https://via.placeholder.com/50" alt="Logo">
-                <span class="text-3xl font-bold text-white">ePitch Networks</span>
+                <img src="images/logo.png" alt="Logo" class="h-10">
+                <span class="text-2xl font-bold text-white ml-2">ePitch Networks</span>
             </a>
-            <nav class="flex space-x-4 items-center header-nav mt-4">
-                <ul class="flex space-x-4">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#competitions">Competitions</a></li>
-                    <li><a href="#support">Support</a></li>
-                </ul>
-                <div id="user-info" class="ml-4">
-                    <a href="https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code&scope=identify%20email" class="btn-discord font-bold">
-                        <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
-                        Login with Discord
-                    </a>
-                </div>
-            </nav>
+            <div id="user-info">
+                <a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1266421122887450774&response_type=code&redirect_uri=https%3A%2F%2Falexg0dev.github.io%2Fwebsite%2F&scope=identify+email" class="btn-discord font-bold">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" class="h-6">
+                    Login with Discord
+                </a>
+            </div>
         </div>
     </header>
 
-    <div class="results-marquee">
-        <span>Red Dragons 2 - 1 Blue Tigers | Green Warriors 0 - 0 Yellow Knights | Purple Hawks 3 - 2 Orange Foxes | White Wolves 1 - 3 Black Panthers | Grey Eagles 2 - 2 Navy Sharks | ...</span>
-    </div>
-
     <section class="hero">
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+            <source src="images/clubsclip.mp4" type="video/mp4">
+        </video>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="text-6xl font-bold mb-4">Welcome to ePitch Networks</h1>
-            <p class="text-2xl mb-8">Your ultimate destination for pro clubs, events, and tournaments</p>
-            <div class="flex justify-center space-x-4">
+        <div class="hero-content flex flex-col items-center">
+            <h1 id="welcome-message" class="text-4xl font-bold mb-4">Welcome to ePitch Networks</h1>
+            <p class="text-xl mb-8">Your ultimate destination for pro clubs, events, and tournaments</p>
+            <div class="flex flex-col w-full items-center space-y-4">
                 <a href="#" class="btn-primary text-white font-bold">Get Started</a>
                 <a href="#" class="btn-secondary text-white font-bold">Learn More</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-16 bg-gray-900">
+    <section class="py-4 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8 text-center section-title">About</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="feature-card">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#competitions">Competitions</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section id="about" class="py-8 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-8 section-title">About</h2>
+            <div class="grid grid-cols-1 gap-8">
+                <div class="feature-card flex flex-col items-center">
                     <img src="https://img.icons8.com/ios-filled/100/ffffff/controller.png" alt="eSports and Streaming" class="feature-icon">
                     <h3>eSports and Streaming</h3>
                     <p>We bring together pro clubs and esports enthusiasts for the ultimate gaming experience.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card flex flex-col items-center">
                     <img src="https://img.icons8.com/ios-filled/100/ffffff/organization.png" alt="Our Structure" class="feature-icon">
                     <h3>Our Structure</h3>
                     <p>Providing leagues and tournaments in over 100 countries to turn pro clubs into a global phenomenon.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card flex flex-col items-center">
                     <img src="https://img.icons8.com/ios-filled/100/ffffff/swap.png" alt="Player Transfers" class="feature-icon">
                     <h3>Player Transfers</h3>
                     <p>Manage your team with our immaculate team management tools for a seamless experience.</p>
@@ -374,39 +343,48 @@
         </div>
     </section>
 
-    <section id="events" class="py-16 bg-gray-800">
+    <section id="events" class="py-8 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8 text-center section-title">Upcoming Events</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h2 class="text-4xl font-bold mb-8 section-title">Upcoming Events</h2>
+            <div class="grid grid-cols-1 gap-8">
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 1</h3>
-                    <p class="mb-4">Don't miss Event 1 – a thrilling competition for all esports enthusiasts.</p>
-                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                    <div class="relative">
+                        <img src="images/2celebration.jpg" alt="Pro Clubs Championship" class="rounded-t-lg w-full">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Pro Clubs Championship</h3>
+                    </div>
+                    <p class="mb-4">Join the ultimate Pro Clubs Championship and compete with the best teams worldwide.</p>
+                    <a href="#" class="btn-primary text-white font-bold w-full text-center">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 2</h3>
-                    <p class="mb-4">Join Event 2 for an unforgettable esports experience.</p>
-                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                    <div class="relative">
+                        <img src="images/celebrationbanner.jpg" alt="ePitch Invitational" class="rounded-t-lg w-full">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">ePitch Invitational</h3>
+                    </div>
+                    <p class="mb-4">Participate in the ePitch Invitational for a chance to win exclusive prizes.</p>
+                    <a href="#" class="btn-primary text-white font-bold w-full text-center">Join</a>
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-2">Event 3</h3>
-                    <p class="mb-4">Be part of Event 3 and compete with the best players.</p>
-                    <a href="#" class="btn-primary text-white font-bold">Join</a>
+                    <div class="relative">
+                        <img src="images/3cbanner.jpg" alt="Rising Stars Tournament" class="rounded-t-lg w-full">
+                        <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Rising Stars Tournament</h3>
+                    </div>
+                    <p class="mb-4">Showcase your skills in the Rising Stars Tournament and catch the eye of top teams.</p>
+                    <a href="#" class="btn-primary text-white font-bold w-full text-center">Join</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="competitions" class="py-16 bg-gray-900">
+    <section id="competitions" class="py-8 bg-gray-900">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8 text-center section-title">Manage Your Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="feature-card">
+            <h2 class="text-4xl font-bold mb-8 section-title">Manage Your Team</h2>
+            <div class="grid grid-cols-1 gap-8">
+                <div class="feature-card flex flex-col items-center">
                     <a href="#"><img src="https://img.icons8.com/ios-filled/100/ffffff/management.png" alt="Team Management" class="feature-icon"></a>
                     <h3>Team Management</h3>
                     <p>With our tools, manage your team effectively and ensure smooth operations.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card flex flex-col items-center">
                     <a href="#"><img src="https://img.icons8.com/ios-filled/100/ffffff/leaderboard.png" alt="Become a Player" class="feature-icon"></a>
                     <h3>Become a Player</h3>
                     <p>Join a team, showcase your skills, and climb the ranks in the esports world.</p>
@@ -415,7 +393,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-800">
+    <section class="py-8 bg-gray-800">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-bold mb-8 section-title">Free Agents and Teams Looking for Players</h2>
             <p class="mb-8">Connect with players and teams to build your ultimate esports squad. Managers can declare interest in players, and players can join teams to compete in our leagues and tournaments.</p>
@@ -423,7 +401,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-900">
+    <section class="py-8 bg-gray-900">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-bold mb-8 section-title">Requirements and Rules</h2>
             <p class="mb-4">Read the following requirements and rules to participate in our leagues and tournaments.</p>
@@ -442,47 +420,47 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-800">
+    <section class="py-8 bg-gray-800">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-8 text-center section-title">Get Involved</h2>
+            <h2 class="text-4xl font-bold mb-8 text-center section-title">Get Involved</h3>
             <h3 class="text-2xl font-bold mb-4">How to Join as a Player</h3>
-            <div class="flex items-center justify-center mb-4">
+            <div class="flex flex-col items-center mb-4">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" class="icon" alt="Discord">
-                <p class="ml-4">Join our Discord server, select your console (PS/Xbox), and choose your role (free agent or signed). Post in the free agent chats about your player details including position, experience, and gamertag.</p>
+                <p class="text-center">Join our Discord server, select your console (PS/Xbox), and choose your role (free agent or signed). Post in the free agent chats about your player details including position, experience, and gamertag.</p>
             </div>
             <h3 class="text-2xl font-bold mb-4">How to Enroll Your Team</h3>
-            <div class="flex items-center justify-center mb-4">
+            <div class="flex flex-col items-center mb-4">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" class="icon" alt="Email">
-                <p class="ml-4">Contact us via email at: info@epitchnetworks.com to enroll your team. You can also reach out to us on WhatsApp at: +44 7771 301924</p>
+                <p class="text-center">Contact us via email at: <span class="text-white">info@epitchnetworks.com</span> to enroll your team.</p>
             </div>
             <h3 class="text-2xl font-bold mb-4">Partnerships and Sponsorships</h3>
-            <div class="flex items-center justify-center mb-4">
+            <div class="flex flex-col items-center mb-4">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/handshake.png" class="icon" alt="Partnerships">
-                <p class="ml-4">We are always looking for partners and sponsors to collaborate with us. Contact us to discuss potential partnership opportunities and how we can work together to promote esports.</p>
+                <p class="text-center">We are always looking for partners and sponsors to collaborate with us. Contact us to discuss potential partnership opportunities and how we can work together to promote esports.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-gray-900">
+    <section class="py-8 bg-gray-900">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-bold mb-8 section-title">Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card">
-                    <img src="images/saliba.png" alt="Alexandro" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+            <div class="grid grid-cols-1 gap-8">
+                <div class="card flex flex-col items-center">
+                    <img src="images/saliba.png" alt="Alexandro" class="mx-auto mb-4 rounded-full" style="width: 100px; height: 100px;">
                     <h3 class="text-2xl font-bold mb-2">Alexandro
                         <img src="https://img.icons8.com/color/48/000000/united-arab-emirates-circular.png" alt="UAE" class="circular-flag">
                     </h3>
                     <p class="mb-4">CEO</p>
                 </div>
-                <div class="card">
-                    <img src="images/invisible.png" alt="Invisible" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                <div class="card flex flex-col items-center">
+                    <img src="images/invisible.png" alt="Invisible" class="mx-auto mb-4 rounded-full" style="width: 100px; height: 100px;">
                     <h3 class="text-2xl font-bold mb-2">Invisible
                         <img src="https://img.icons8.com/color/48/000000/great-britain-circular.png" alt="UK" class="circular-flag">
                     </h3>
                     <p class="mb-4">COO</p>
                 </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/150" alt="Klavs" class="mx-auto mb-4 rounded-full">
+                <div class="card flex flex-col items-center">
+                    <img src="images/klavs.png" alt="Klavs" class="mx-auto mb-4 rounded-full" style="width: 100px; height: 100px;">
                     <h3 class="text-2xl font-bold mb-2">Klavs
                         <img src="https://img.icons8.com/color/48/000000/latvia-circular.png" alt="Latvia" class="circular-flag">
                     </h3>
@@ -495,15 +473,15 @@
     <section class="ad-section">
         <div class="container mx-auto">
             <h2 class="text-2xl font-bold mb-4 text-center">Sponsored Ads</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 gap-8">
                 <div>
-                    <img src="https://via.placeholder.com/300x200" alt="Ad 1">
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 1" class="w-full">
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200" alt="Ad 2">
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 2" class="w-full">
                 </div>
                 <div>
-                    <img src="https://via.placeholder.com/300x200" alt="Ad 3">
+                    <img src="https://via.placeholder.com/300x200" alt="Ad 3" class="w-full">
                 </div>
             </div>
         </div>
@@ -535,6 +513,9 @@
     </div>
 
     <script>
+        const clientId = '1266421122887450774';
+        const redirectUri = 'https://alexg0dev.github.io/website/';
+
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
             document.querySelector('.cookie-consent').style.display = 'none';
@@ -545,7 +526,73 @@
             document.querySelector('.cookie-warning').style.display = 'block';
         }
 
+        function getAccessToken(code) {
+            const url = `https://discord.com/api/oauth2/token`;
+            const data = new URLSearchParams({
+                client_id: clientId,
+                client_secret: 'KPvW2wMlynULsjCN2uqOBwutIdWq4RLD',
+                grant_type: 'authorization_code',
+                code: code,
+                redirect_uri: redirectUri,
+            });
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data,
+            }).then(response => response.json());
+        }
+
+        function getUserInfo(accessToken) {
+            return fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            }).then(response => response.json());
+        }
+
+        function displayUserInfo(user) {
+            document.getElementById('user-info').innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <span>${user.username}</span>
+                    <button onclick="confirmSignOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
+                </div>
+            `;
+            document.getElementById('welcome-message').innerText = `Nice to see you again, ${user.username}`;
+        }
+
+        function confirmSignOut() {
+            if (confirm("Are you sure you want to sign out?")) {
+                alert('You have signed out successfully.');
+                signOut();
+            }
+        }
+
+        function signOut() {
+            localStorage.removeItem('user');
+            location.reload();
+        }
+
         window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+
+            if (code) {
+                getAccessToken(code).then(data => {
+                    getUserInfo(data.access_token).then(user => {
+                        localStorage.setItem('user', JSON.stringify(user));
+                        displayUserInfo(user);
+                    });
+                });
+            } else {
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    displayUserInfo(user);
+                }
+            }
+
             if (localStorage.getItem('cookiesAccepted') === 'true') {
                 document.querySelector('.cookie-consent').style.display = 'none';
             }
