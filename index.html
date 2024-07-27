@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script>
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        window.location.href = "index1.html";
+    }
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -157,8 +163,17 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #000;
-            color: white;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
         .hero-overlay {
@@ -371,7 +386,7 @@
     <header class="gradient-bg p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="navbar-brand flex items-center">
-                <img src="https://via.placeholder.com/50" alt="Logo">
+                <img src="images/logo.png" alt="Logo">
                 <span class="text-3xl font-bold text-white">ePitch Networks</span>
             </a>
             <nav class="flex items-center header-nav">
@@ -396,11 +411,11 @@
     </div>
 
     <section class="hero">
+        <video autoplay loop muted playsinline>
+            <source src="images/clubsclip.mp4" type="video/mp4">
+        </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="https://example.com/pro-clubs-video.mp4" type="video/mp4">
-            </video>
             <h1 id="welcome-message" class="text-6xl font-bold mb-4">Welcome to ePitch Networks</h1>
             <p class="text-2xl mb-8">Your ultimate destination for pro clubs, events, and tournaments</p>
             <div class="flex justify-center space-x-4">
@@ -439,7 +454,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="card hover:bg-gray-700 transition duration-300">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/400x200" alt="Pro Clubs Championship" class="rounded-t-lg">
+                        <img src="images/2celebration.jpg" alt="Pro Clubs Championship" class="rounded-t-lg">
                         <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Pro Clubs Championship</h3>
                     </div>
                     <p class="mb-4">Join the ultimate Pro Clubs Championship and compete with the best teams worldwide.</p>
@@ -447,7 +462,7 @@
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/400x200" alt="ePitch Invitational" class="rounded-t-lg">
+                        <img src="images/celebrationbanner.jpg" alt="ePitch Invitational" class="rounded-t-lg">
                         <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">ePitch Invitational</h3>
                     </div>
                     <p class="mb-4">Participate in the ePitch Invitational for a chance to win exclusive prizes.</p>
@@ -455,7 +470,7 @@
                 </div>
                 <div class="card hover:bg-gray-700 transition duration-300">
                     <div class="relative">
-                        <img src="https://via.placeholder.com/400x200" alt="Rising Stars Tournament" class="rounded-t-lg">
+                        <img src="images/3cbanner.jpg" alt="Rising Stars Tournament" class="rounded-t-lg">
                         <h3 class="text-2xl font-bold mb-2 absolute bottom-2 left-2 text-white bg-black bg-opacity-50 p-2 rounded">Rising Stars Tournament</h3>
                     </div>
                     <p class="mb-4">Showcase your skills in the Rising Stars Tournament and catch the eye of top teams.</p>
@@ -521,7 +536,7 @@
             <h3 class="text-2xl font-bold mb-4">How to Enroll Your Team</h3>
             <div class="flex items-center justify-center mb-4">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" class="icon" alt="Email">
-                <p class="ml-4">Contact us via email at: info@epitchnetworks.com to enroll your team.</p>
+                <p class="ml-4">Contact us via email at: <span class="text-white">info@epitchnetworks.com</span> to enroll your team.</p>
             </div>
             <h3 class="text-2xl font-bold mb-4">Partnerships and Sponsorships</h3>
             <div class="flex items-center justify-center mb-4">
@@ -536,21 +551,21 @@
             <h2 class="text-4xl font-bold mb-8 section-title">Our Team</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" alt="Alexandro" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                    <img src="images/saliba.png" alt="Alexandro" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
                     <h3 class="text-2xl font-bold mb-2">Alexandro
                         <img src="https://img.icons8.com/color/48/000000/united-arab-emirates-circular.png" alt="UAE" class="circular-flag">
                     </h3>
                     <p class="mb-4">CEO</p>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" alt="Invisible" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                    <img src="images/invisible.png" alt="Invisible" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
                     <h3 class="text-2xl font-bold mb-2">Invisible
                         <img src="https://img.icons8.com/color/48/000000/great-britain-circular.png" alt="UK" class="circular-flag">
                     </h3>
                     <p class="mb-4">COO</p>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" alt="Klavs" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
+                    <img src="images/klavs.png" alt="Klavs" class="mx-auto mb-4 rounded-full" style="width: 150px; height: 150px;">
                     <h3 class="text-2xl font-bold mb-2">Klavs
                         <img src="https://img.icons8.com/color/48/000000/latvia-circular.png" alt="Latvia" class="circular-flag">
                     </h3>
@@ -649,10 +664,17 @@
             document.getElementById('user-info').innerHTML = `
                 <div class="flex items-center space-x-4">
                     <span>${user.username}</span>
-                    <button onclick="signOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
+                    <button onclick="confirmSignOut()" class="bg-white text-blue-500 font-bold py-2 px-4 rounded">Sign out</button>
                 </div>
             `;
             document.getElementById('welcome-message').innerText = `Nice to see you again, ${user.username}`;
+        }
+
+        function confirmSignOut() {
+            if (confirm("Are you sure you want to sign out?")) {
+                alert('You have signed out successfully.');
+                signOut();
+            }
         }
 
         function signOut() {
