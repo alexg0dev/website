@@ -60,6 +60,14 @@
             padding: 0.5rem 1rem;
             width: 100%;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-discord img {
+            height: 20px;
+            margin-right: 0.5rem;
         }
 
         .hero-content {
@@ -69,10 +77,16 @@
 
         .card {
             padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #c5c6c7;
+            border-radius: 0.5rem;
         }
 
         .feature-card {
             padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #c5c6c7;
+            border-radius: 0.5rem;
         }
 
         .footer {
@@ -95,16 +109,11 @@
             font-weight: bold;
         }
 
-        .feature-card,
-        .card {
-            border: 1px solid #c5c6c7;
-            border-radius: 0.5rem;
-        }
-
         .feature-card img,
         .card img {
             margin-bottom: 1rem;
             width: 100%;
+            border-radius: 0.5rem;
         }
 
         .navbar-brand {
@@ -132,16 +141,6 @@
             background: rgba(0, 0, 0, 0.5);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            border-radius: 1rem;
-        }
-
         .ad-section {
             background-color: #2c3e50;
             padding: 1rem;
@@ -153,6 +152,7 @@
         .ad-section img {
             max-width: 100%;
             height: auto;
+            border-radius: 0.5rem;
         }
 
         .cookie-consent {
@@ -243,7 +243,7 @@
             </a>
             <div id="user-info">
                 <a id="login-btn" href="https://discord.com/oauth2/authorize?client_id=1266421122887450774&response_type=code&redirect_uri=https%3A%2F%2Falexg0dev.github.io%2Fwebsite%2F&scope=identify+email" class="btn-discord font-bold">
-                    <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" class="h-6">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord">
                     Login with Discord
                 </a>
             </div>
